@@ -1,28 +1,41 @@
 "use stcrict";
 
-let numberOfFilms = prompt('Сколько фильмов вы уже посмотрели?');
+// if (4 == 9) {                        обычный if
+//     console.log("Ok!");
+// } else {
+//     console.log("Error!");
+// }
 
-const personalMovieDB = {
+// const num = 50;
 
-    count: numberOfFilms,
-    movies: {
-
-    },
-    actors: {
-
-    },
-    genres: [],
-    privat: false
-
-};
-
-let question2 = prompt('Один из последних просмотренных фильмов?');
-let question3 = prompt('На сколько его оцените?');
-personalMovieDB.movies[1] = `${question2}: ${question3}`;
-question2 = prompt('Один из последних просмотренных фильмов?');
-question3 = prompt('На сколько его оцените?');
-personalMovieDB.movies[2] = `${question2}: ${question3}`;
-console.log(personalMovieDB.movies[1]);
-console.log(personalMovieDB.movies[2]);
+// if ( num < 49) {
+//     console.log("Error");
+// } else if (num > 100) {
+//     console.log('Много');
+// } else {
+//     console.log('Ok!');
+// }
 
 
+
+// (num == 50) ? console.log('Ok!') : console.log('Error'); тинарный 
+
+
+
+
+const num = 51;                          //Модифицированный if
+
+switch (num) {
+    case 49:
+        console.log('Неверно');
+        break;
+    case 100:
+        console.log('Неверно');
+        break;
+    case 50:
+        console.log('В точку');
+        break;
+    default:
+        console.log('Не в этот раз');
+        break;
+}
