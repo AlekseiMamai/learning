@@ -1,50 +1,71 @@
 "use stcrict";
 
-const numberOfFilms = prompt('Сколько фильмов вы уже посмотрели?');
+// function showFirstMessege(text) {
+//     console.log(text);
+// }
 
-const personalMovieDB = {
+// showFirstMessege("Hello World!");
 
-    count: numberOfFilms,
-    movies: {
+let num = 20; //доступна глобально
 
-    },
-    actors: {
-
-    },
-    genres: [],
-    privat: false
-
-};
-
-for (let i = 1; i < 10; i++) {
-    if (i > numberOfFilms) {
-        break;
-    } else {
-        const question2 = prompt('Один из последних просмотренных фильмов?'),
-              question3 = prompt('На сколько его оцените?');
-        if (question2 != '' && question3 != '' && question2 != null && question3 != null && question2.length < 50) {
-            personalMovieDB.movies[i] = `${question2}: ${question3}`;
-            console.log(personalMovieDB.movies[i]);
-            console.log('done');
-        } else {
-            console.log('error');
-            i--;
-        }
-    }
+function showFirstMessege(text) {
+    console.log(text);
+    //let num = 10;      // не доступна глобально
+    num = 10;
 }
 
-if (numberOfFilms >= 1 && numberOfFilms < 10) {
-    console.log('Просмотрено мало фильмов');
-    prompt('Просмотрено мало фильмов');
+showFirstMessege("Hello World!");
+console.log(num);
+
+
+
+
+
+function calc(a, b){
+    return(a+b); //после return ничего не происходит, 
+                // на нём функция заканчивается 
 }
-else if (numberOfFilms >= 10 && numberOfFilms <= 30) {
-    console.log('Вы классический зритель');
-    prompt('Вы классический зритель');
-} 
-else if (numberOfFilms > 30) {
-    console.log('Вы киноман');
-    prompt('Вы киноман');
-} else {
-    console.log('Произошла ошибка');
-    prompt('Произошла ошибка');
+
+console.log(calc(4, 3));
+console.log(calc(5, 6));
+console.log(calc(10, 6));
+
+
+
+
+
+function ret() {
+    let num = 50;
+    return num;
 }
+
+const anotherNum = ret();
+console.log(anotherNum);
+
+
+//классификация функций
+
+//1) функция выше - работает как var, даже если
+// вызывается перед её созданием
+
+//2)
+
+const logger = function() {
+    console.log('Hello!');
+}; // ставим запятую
+
+logger();
+
+//эта функция не может быть вызвана до её создания
+
+
+//3)
+
+const calc = (a, b) => a + b;
+const calc = (a, b) => {
+    return a + b
+}; // также ставится запятая
+
+calc(4, 5);
+
+// нельзя использовать везде
