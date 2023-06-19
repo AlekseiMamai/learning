@@ -84,13 +84,13 @@ function genresQuiz () {
     for (let i = 1; i !=4 ; i++) {
 
     lovelyGenres = prompt(`Ваш любимы жанр под номером ${i}`);
-    personalMovieDB.genres[i] = lovelyGenres;
-    console.log(personalMovieDB.genres[i]);
+    personalMovieDB.genres[i-1] = lovelyGenres;
+    console.log(personalMovieDB.genres[i-1]);
 
         while (lovelyGenres == '' || lovelyGenres == null || !isNaN(lovelyGenres)) {
         lovelyGenres = prompt(`Ваш любимы жанр под номером ${i}`);
-        personalMovieDB.genres[i] = lovelyGenres;
-        console.log(personalMovieDB.genres[i]);
+        personalMovieDB.genres[i-1] = lovelyGenres;
+        console.log(personalMovieDB.genres[i-1]);
         }
     }
 }
