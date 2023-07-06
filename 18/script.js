@@ -37,9 +37,9 @@
 //аргумента можно задать функцию
 
                 //элемент | индекс элемента | массив
-// arr.forEach(function(item, i, arr){
-//     console.log(`${i}: ${item} внутри массива ${arr}`)
-// });
+arr.forEach(function(item, i, arr){
+    console.log(`${i}: ${item} внутри массива ${arr}`)
+});
 
 //!!в for each цикл остановить нельзя. Если такое необходимо,
 //можно пользоваться for of с break и continue
