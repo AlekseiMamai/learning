@@ -1,11 +1,9 @@
 "use stcrict";
 
-let numberOfFilms;
-let lovelyGenres;
-
 const personalMovieDB = {
 
-    count: numberOfFilms,
+    count: 0,
+    lovelyGenres: '',
     movies: {
 
     },
@@ -15,16 +13,16 @@ const personalMovieDB = {
     genres: [],
     privat: false,
     start: function() {
-        numberOfFilms = +prompt('Сколько фильмов вы уже посмотрели?');
+        personalMovieDB.count = +prompt('Сколько фильмов вы уже посмотрели?');
     
-        while (numberOfFilms == '' || numberOfFilms == null || isNaN(numberOfFilms)) {
-            numberOfFilms = +prompt('Сколько фильмов вы уже посмотрели?');
+        while (personalMovieDB.count == '' || personalMovieDB.count == null || isNaN(personalMovieDB.count)) {
+            personalMovieDB.count = +prompt('Сколько фильмов вы уже посмотрели?');
         }
     },
 
     rememberMyFilms: function() {
         for (let i = 1; i < 10; i++) {
-            if (i > numberOfFilms) {
+            if (i > personalMovieDB.count) {
                 break;
             } else {
                 const question2 = prompt('Один из последних просмотренных фильмов?'),
@@ -42,15 +40,15 @@ const personalMovieDB = {
     },
 
     detectPersonalLevel: function() {
-        if (numberOfFilms >= 1 && numberOfFilms < 10) {
+        if (personalMovieDB.count >= 1 && personalMovieDB.count < 10) {
             console.log('Просмотрено мало фильмов');
             prompt('Просмотрено мало фильмов');
         }
-        else if (numberOfFilms >= 10 && numberOfFilms <= 30) {
+        else if (personalMovieDB.count >= 10 && personalMovieDB.count <= 30) {
             console.log('Вы классический зритель');
             prompt('Вы классический зритель');
         } 
-        else if (numberOfFilms > 30) {
+        else if (personalMovieDB.count > 30) {
             console.log('Вы киноман');
             prompt('Вы киноман');
         } else {
@@ -71,20 +69,20 @@ const personalMovieDB = {
     genresQuiz: function() {
         for (let i = 1; i !=4 ; i++) {
                 
-        lovelyGenres = prompt(`Ваш любимый жанр под номером ${i}`);
-        personalMovieDB.genres[i-1] = lovelyGenres;
+        personalMovieDB.lovelyGenres = prompt(`Ваш любимый жанр под номером ${i}`);
+        personalMovieDB.genres[i-1] = personalMovieDB.lovelyGenres;
         
     
-            while (lovelyGenres == '' || lovelyGenres == null || !isNaN(lovelyGenres)) {
-            lovelyGenres = prompt(`Ваш любимый жанр под номером ${i}`);
-            personalMovieDB.genres[i-1] = lovelyGenres;
+            while (personalMovieDB.lovelyGenres == '' || personalMovieDB.lovelyGenres == null || !isNaN(personalMovieDB.lovelyGenres)) {
+                personalMovieDB.lovelyGenres = prompt(`Ваш любимый жанр под номером ${i}`);
+            personalMovieDB.genres[i-1] = personalMovieDB.lovelyGenres;
             }
         }
 
         personalMovieDB.genres.forEach((genre, i) => {
             console.log(`Любимый жанр под номером ${i+1} это ${genre}`);
         }); 
-
+        personalMovieDB.lovelyGenres = '';
     },
 
     toggleVisibleMyDB: function() {
