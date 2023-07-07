@@ -11,7 +11,7 @@ const personalMovieDB = {
 
     },
     genres: [],
-    privat: false,
+    privat: true,
     start: function() {
         personalMovieDB.count = +prompt('Сколько фильмов вы уже посмотрели?');
     
@@ -62,6 +62,7 @@ const personalMovieDB = {
             console.log(personalMovieDB.privat);
             console.log(personalMovieDB);
         } else {
+            console.log(personalMovieDB.privat);
             console.log('Нет доступа');
         }
     },
@@ -89,20 +90,9 @@ const personalMovieDB = {
         
         if (personalMovieDB.privat != true) {
             personalMovieDB.privat = true
-            
-            personalMovieDB.showMyDB();
-            personalMovieDB.start();
-            personalMovieDB.rememberMyFilms();
-            personalMovieDB.detectPersonalLevel();
-            personalMovieDB.genresQuiz();
-            console.log(personalMovieDB);
         } else {
             personalMovieDB.privat = false
-            console.log(personalMovieDB.privat);
         }
         
     }
 }
-
-personalMovieDB.showMyDB();
-personalMovieDB.toggleVisibleMyDB();
