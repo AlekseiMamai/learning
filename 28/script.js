@@ -15,7 +15,7 @@ const btn = document.querySelectorAll('button'),
 
 // btn.onclick = function() {
 //     alert('Second click');
-// }; сработает только второй ивент, т.к. используется
+// }; сработает только второй ивент, т.к. используется один
 // и тот же элемент
 
 //3) addEventListener();
@@ -27,12 +27,12 @@ const btn = document.querySelectorAll('button'),
 
 //на один элемент могу назначаться друг за другом несколько
 //событий 
-// btn.addEventListener('click', () => { //первый аргумент - функциональное название события
+// btn.addEventListener('click', () => { 
 //     alert('Second click');
 // });
 
 //!!!Так можно запросить доступ к свойствам ивента
-// btn.addEventListener('click', (e) => { //первый аргумент - функциональное название события
+// btn.addEventListener('click', (e) => { 
 //     console.log(e.target);
 //     e.target.remove();
 //     alert('Click');
@@ -84,3 +84,4 @@ btn.forEach( b => {
 btn.forEach( b => {
     b.addEventListener('click', deleteEvent, {once: true});
 });
+
