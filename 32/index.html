@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<title>Document</title>
+</head>
+<body>
+	<!-- 1)defer позволяет загружать скрипт в фоновом режиме,
+запустить его уже после прогрузки элементов страницы
+defer никогда не блокирует прогрузку страницы и всегда 
+выполняются в конце загрузки страницы. Также 
+такие скрипты срабатывают ещё до DOMContentLoader
+Вне зависимости от размера, а значит, длительности 
+прогрузки крипта, defer скрипты идут строго по порядку-->
+	<!-- <script defer src="script.js"></script> -->
+	<script async src="script.js"></script>
+	<p>Hello World!</p>
+	<p>Second message</p>
+
+</body>
+</html>
