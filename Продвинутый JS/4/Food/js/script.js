@@ -274,13 +274,13 @@ window.addEventListener('DOMContentLoaded', () => {
 
             //!!! Ввжно, чтобы у формы для отправки был в вёрстке 
             //атрибут name
-            // request.setRequestHeader('Content-type', 'multipart/form-data');
+            request.setRequestHeader('Content-type', 'multipart/form-data');
             //!!!^^^при связке XMLHttpRequest и form-data заголовок ^^^
             //устанавливать не нужно, он автоматически устанваливается
             //поэтому сервер отправляет нам пустой объект
             
             //заголовок в формате JSON
-            request.setRequestHeader('Content-type', 'Content-type', 'application/json; charset=utf-8');
+            request.setRequestHeader('Content-type', 'application/json; charset=utf-8');
             const formData = new FormData(form);
 
             //!!!Нужно formData превратить в формат JSON
