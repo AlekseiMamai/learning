@@ -379,56 +379,99 @@ window.addEventListener('DOMContentLoaded', () => {
 
     //Слайдер
 
-    //1 Слайдер
+    const slides = document.querySelectorAll(".offer__slide"),
+        prev = document.querySelector(".offer__slider-prev"),
+        next = document.querySelector(".offer__slider-next"),
+        total = document.querySelector("#total"),
+        current = document.querySelector("#current"),
+    //Нам нужно знать, сколько места занимает главная обёртка offer__slider-wrapper
+    //чтобы при прокрутке слайды менялись ползунком и не пришлось скрывать отдельно
+    //элементы
+    //Инлайн стили для данного блока ещё не существуют, поэтому нужно доставать 
+    //параметры применённых стилей уже когда блок отрендерился на странице
+        slidesWrapper = document.querySelector(".offer__slider-wrapper"),
+        width = window.getComputedStyle(slidesWrapper).width,
+    //вернули объект и ширину из объекта(.width)
+        slidesField = document.querySelector(".offer__slider-inner");
 
-    const slides = document.querySelectorAll('.offer__slide'),
-          prev = document.querySelector('.offer__slider-prev'),
-          next = document.querySelector('.offer__slider-next'),
-          total = document.querySelector('#total'),
-          current = document.querySelector('#current');
     let slideIndex = 1;
+    let offset = 0; //переменная для отслеживания отступа при переходе слайдера
 
     if (slides.lenght < 10) {
-        total.textContent = `0${slides.length}`
-    } else {
-        total.textContent = slides.length
-    } 
+            total.textContent = `0${slides.length}`;
+            current.textContent = `0${slideIndex}`;
+        } else {
+            total.textContent = slides.length
+            current.textContent = `0${slideIndex}`;
+        }
 
-    showSlides(slideIndex);
+    //Увеличиваем ширину второй обёртки до размера всех четырёх слайдов
+    slidesField.style.width = 100 * slides.length + '%';
+    slidesField.style.display = 'flex';
+    slidesField.style.transition = '0.5s all';
 
-    function showSlides(n) {
-        if (n > slides.length) {
+    slidesWrapper.style.overflow = 'hidden';
+
+    slides.forEach((slide) => {
+        slide.style.width = width;
+    });//чтобы все слайды были одного размера
+
+    next.addEventListener('click', () => {
+        if (offset == +width.slice(0, width.length - 2) * (slides.length - 1)) {
+            offset = 0;
+        // == сравнение
+        //ширина умножается на количество слайдов - 1, т.к. 
+        //нумерация идёт с нуля. Проще говоря если offset при нажатии составляет
+        //значение последнего слайда(размера всей обёртки в целом), 
+        //то происходит переход на первый слайд, т.к. offset сбрасывается
+        //offset = 0;
+
+        //В свойстве width записано '500px' строкой,
+        //поэтому матем операция не пройдёт. С помощью slice отрезаем 'px'
+        //и производим вычисление 
+        } else {
+            offset += +width.slice(0, width.length - 2);//добавлять
+        }
+
+
+
+        slidesField.style.transform = `translateX(-${offset}px)`;
+
+        if (slideIndex == slides.length) {
             slideIndex = 1;
+        } else {
+            slideIndex++
         }
 
-        if (n < 1) {
-            slideIndex = slides.length;
-        }
-
-        slides.forEach(item => item.classList.add('hide'));
-
-        slides[slideIndex - 1].classList.remove('hide');
-        slides[slideIndex - 1].classList.add('show');
-
-        if (slides.lenght < 10) {
+        if (slides.length < 10) {
             current.textContent = `0${slideIndex}`;
         } else {
             current.textContent = slideIndex;
-        } 
-    }
-
-    function plusSlides(n) {
-        showSlides(slideIndex += n);
-        // showSlides();
-        // slideIndex += n;
-    }
-
-    prev.addEventListener('click', () => {
-        plusSlides(-1);
+        }
     });
 
-    next.addEventListener('click', () => {
-        plusSlides(1);
+    prev.addEventListener('click', () => {
+        if (offset == 0) {
+            offset = +width.slice(0, width.length - 2) * (slides.length - 1);
+        //как и в next, только наоборот
+        } else {
+            offset -= +width.slice(0, width.length - 2);//отнимать
+        }
+
+        slidesField.style.transform = `translateX(-${offset}px)`;
+
+        if (slideIndex == 1) {
+            slideIndex = slides.length;
+        } else {
+            slideIndex--
+        }
+
+        if (slides.length < 10) {
+            current.textContent = `0${slideIndex}`;
+        } else {
+            current.textContent = slideIndex;
+        }
+
     });
 
 });
