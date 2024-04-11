@@ -214,12 +214,20 @@ window.addEventListener('DOMContentLoaded', () => {
         return await res.json();
     };
 
-    getResource('http://localhost:3000/menu')
-        .then(data => {
-            data.forEach(({img, altimg, title, descr, price}) => {
+    // getResource('http://localhost:3000/menu')
+    //     .then(data => {
+    //         data.forEach(({img, altimg, title, descr, price}) => {
+    //             new MenuCard(img, altimg, title, descr, price,'.menu .container').render();
+    //         });
+    //     });
+
+    axios.get('http://localhost:3000/menu')
+        .then(obj => {
+            obj.data.forEach(({img, altimg, title, descr, price}) => {
                 new MenuCard(img, altimg, title, descr, price,'.menu .container').render();
-            });
+            //obj.data поскольку axios конвертирует из json сразу в объект
         });
+    });
     //1)В аргумент записывается путь к массиву объектов базы даных
     //2)Поскольку это массив, используется метод forEach для перебора
     //3)В forEach используем {} деструктуризацию объекта из массива бд
