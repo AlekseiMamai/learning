@@ -586,7 +586,7 @@ window.addEventListener('DOMContentLoaded', () => {
         elements.forEach(elem => {
             elem.classList.remove(activeClass);
             if (elem.getAttribute('id') === localStorage.getItem('sex')) {
-                elem.classList.add(activeClass);
+                elements.classList.add(activeClass);
             }
             if (elem.getAttribute('data-ratio') === localStorage.getItem('ratio')) {
                 elem.classList.add(activeClass);
@@ -594,8 +594,8 @@ window.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    initLocalSettings('#gender div', 'calculating__choose-item_active');
-    initLocalSettings('.calculating__choose_big div', 'calculating__choose-item_active');
+    initLocalSettings('#gender', 'calculating__choose-item_active');
+    initLocalSettings('.calculating__choose_big', 'calculating__choose-item_active');
 
     function calcTotal() {
         if (!sex || !height || !weight || !age || !ratio) {
