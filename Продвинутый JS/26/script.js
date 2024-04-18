@@ -17,7 +17,11 @@ try {
     console.log(a);
     console.log('result');
 } catch(error) { //объект ошибки
-    console.log(error);
+    console.log(error.name);
+    console.log(error.message);
+    console.log(error.stack);
+} finally {
+    
 }
 
 // console.log(a);
