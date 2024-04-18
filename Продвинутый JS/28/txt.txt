@@ -1,0 +1,17 @@
+Angular:
+-node.js
+-TypeScript
+-Webpack
+-MVC pattern
+-Angular
+
+React:
+-JSX
+-babel
+-webpack
+-React
+
+Vue.js:
+-webpack
+-js
+-Vue
