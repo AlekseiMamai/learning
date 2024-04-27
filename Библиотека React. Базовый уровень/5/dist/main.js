@@ -1,0 +1,2 @@
+(()=>{"use strict";class o{constructor(o,t,s){this.width=o,this.height=t,this.count=s}nextSlide(){console.log("Moving forward")}prevSlide(){console.log("Moving back")}whoAmI(){console.log(this.width,this.height,this.count)}}new class extends o{constructor(o,t,s,e){super(o,t,s),this.auto=e}play(){console.log(`Autoplay: ${this.auto}`)}}(500,500,4,!0),new o(400,300,5).whoAmI(),console.log("button")})();
+//# sourceMappingURL=main.js.map
