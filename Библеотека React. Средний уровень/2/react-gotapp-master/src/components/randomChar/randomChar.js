@@ -32,8 +32,8 @@ export default class RandomChar extends Component {
     }
 
     updateChar() {
-        // const id = Math.floor(Math.random()*140+25); //от 25 до 140 персонажа
-        const id = 1300000;
+        const id = Math.floor(Math.random()*140+25); //от 25 до 140 персонажа
+        // const id = 1300000;
         this.GotService.getCharacter(id) //здесь возвращается promise, его нужно обработать
         //После редактирования функций в сервисе, ниже приходит новый сформированный объект   
             .then(this.onCharLoaded)

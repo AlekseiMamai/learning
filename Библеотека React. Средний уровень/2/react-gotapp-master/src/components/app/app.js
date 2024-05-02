@@ -1,34 +1,57 @@
-import React from 'react';
+import React, { Component } from 'react';
 import {Col, Row, Container} from 'reactstrap';
 import Header from '../header';
 import RandomChar from '../randomChar';
 import ItemList from '../itemList';
 import CharDetails from '../charDetails';
+import './app.css';
 
 
-const App = () => {
-    return (
-        <> 
-            <Container>
-                <Header />
-            </Container>
-            <Container>
-                <Row>
-                    <Col lg={{size: 5, offset: 0}}>
-                        <RandomChar/>
-                    </Col>
-                </Row>
-                <Row>
-                    <Col md='6'>
-                        <ItemList />
-                    </Col>
-                    <Col md='6'>
-                        <CharDetails />
-                    </Col>
-                </Row>
-            </Container>
-        </>
-    );
-};
+export default class App extends Component {
 
-export default App;
+    state = {
+        toggle: true
+    }
+
+    toggleRandomChar = () => {
+        this.setState((state) => {
+            return {
+                toggle: !state.toggle, 
+//замена старого значения состояние новым(инверсия true->false->true)
+            }           
+        });
+    }
+
+    render() {
+
+        const { toggle } = this.state;
+        const random = toggle ? <RandomChar/> : null;
+
+        return (
+            <> 
+                <Container>
+                    <Header />
+                </Container>
+                <Container>
+                    <Row>
+                        <Col lg={{size: 5, offset: 0}}>
+                            <>
+                                {random}
+                                <button className="btn-toggle" onClick={this.toggleRandomChar}>ToggleRandomCharacter</button>
+                            </>
+                        </Col>
+                    </Row>
+                    <Row>
+                        <Col md='6'>
+                            <ItemList />
+                        </Col>
+                        <Col md='6'>
+                            <CharDetails />
+                        </Col>
+                    </Row>
+                </Container>
+            </>
+        );
+    }
+
+}
