@@ -2,15 +2,23 @@ import React, { Component } from 'react';
 import {Col, Row, Container} from 'reactstrap';
 import Header from '../header';
 import RandomChar from '../randomChar';
-import ItemList from '../itemList';
-import CharDetails from '../charDetails';
 import './app.css';
+import ErrorMessage from '../errorMessage';
+import CharacterPage from '../characterPage';
 
 
 export default class App extends Component {
 
     state = {
-        toggle: true
+        toggle: true,
+        error: false
+    }
+
+    componentDidCatch() {
+        console.log('error');
+        this.setState({
+            error: true
+        })
     }
 
     toggleRandomChar = () => {
@@ -27,6 +35,10 @@ export default class App extends Component {
         const { toggle } = this.state;
         const random = toggle ? <RandomChar/> : null;
 
+        if (this.state.error) {
+            return <ErrorMessage />
+        }
+
         return (
             <> 
                 <Container>
@@ -35,20 +47,13 @@ export default class App extends Component {
                 <Container>
                     <Row>
                         <Col lg={{size: 5, offset: 0}}>
-                            <>
-                                {random}
-                                <button className="btn-toggle" onClick={this.toggleRandomChar}>ToggleRandomCharacter</button>
-                            </>
+                            {random}
+                            <button 
+                                className="btn-toggle" 
+                                onClick={this.toggleRandomChar}>ToggleRandomCharacter</button>
                         </Col>
                     </Row>
-                    <Row>
-                        <Col md='6'>
-                            <ItemList />
-                        </Col>
-                        <Col md='6'>
-                            <CharDetails />
-                        </Col>
-                    </Row>
+                    <CharacterPage/>
                 </Container>
             </>
         );
