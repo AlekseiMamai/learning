@@ -3,7 +3,7 @@ export default class GotService {
         this._apiBase = 'https://www.anapioficeandfire.com/api';
     }
 
-    async getResoursce(url) {
+    getResoursce = async (url) => {
         const res = await fetch(`${this._apiBase}${url}`);
     
         if (!res.ok) {
@@ -13,14 +13,34 @@ export default class GotService {
         return await res.json();
     };
 
-    async getAllCharacters() {
+    getAllCharacters = async() => {
         const res = await this.getResoursce('/characters?page=5&pageSize=10');
         return res.map(this._transformCharacter)
     }
     
-    async getCharacter(id) {
+    getCharacter = async(id) => {
         const character = await this.getResoursce(`/characters/${id}`);
         return this._transformCharacter(character);
+    }
+
+    getAllBooks = async() => {
+        const res = await this.getResoursce('/books/');
+        return res.map(this._transformBook)
+    }
+
+    getBook = async(id) => {
+        const book = await this.getResoursce(`/books/${id}`);
+        return this._transformBook(book);
+    }
+
+    getAllHouses = async() => {
+        const res = await this.getResoursce('/houses/');
+        return res.map(this._transformHouse)
+    }
+
+    getHouse = async(id) => {
+        const house = await this.getResoursce(`/houses/${id}`);
+        return this._transformBook(house);
     }
 
     //функция для вынесения сбора параметров персонажей
@@ -30,7 +50,8 @@ export default class GotService {
             gender: char.gender,
             born: char.born,
             died: char.died,
-            culture: char.culture
+            culture: char.culture,
+            id: Math.floor(Math.random()*140+25)
         }
     }
 
@@ -41,7 +62,8 @@ export default class GotService {
             words: house.words,
             titles: house.titles,
             overlord: house.overlord,
-            ancestralWeapons: house.ancestralWeapons
+            ancestralWeapons: house.ancestralWeapons,
+            id: Math.floor(Math.random()*140+25)
         }
     }
 
@@ -50,7 +72,8 @@ export default class GotService {
             name: book.name,
             numberOfPages: book.numberOfPages,
             publisher: book.publisher,
-            released: book.released
+            released: book.released,
+            id: Math.floor(Math.random()*140+25)
         }
     }
 }
