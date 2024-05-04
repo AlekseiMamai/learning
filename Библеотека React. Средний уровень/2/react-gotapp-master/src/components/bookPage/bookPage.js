@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
 import ItemList from '../itemList';
-import ItemDetails, { Field } from '../itemDetails';
+import ItemDetails2, { Field2 } from '../itemDetails2';
 import ErrorMessage from '../errorMessage';
 import GotService from '../services/gotService';
 import RowBlock from '../rowBlock';
 
-export default class CharacterPage extends Component {
+export default class BookPage extends Component {
 
     gotService = new GotService();
 
@@ -35,18 +35,18 @@ export default class CharacterPage extends Component {
         const itemList = (
             <ItemList 
                 onItemSelected={this.onItemSelected}
-                getData={this.gotService.getAllCharacters}
-                renderItem={({name, gender}) => `${name} (${gender})`}/>
+                getData={this.gotService.getAllBooks}
+                renderItem={({name, publisher}) => `${name} (${publisher})`}/>
         )
 
         const itemDetails = (
-            <ItemDetails 
+            <ItemDetails2 
                 itemId={this.state.selectedItem}>
-                <Field field='gender' label='Gender'/>
-                <Field field='born' label='Born'/>
-                <Field field='died' label='Died'/>
-                <Field field='culture' label='Culture'/>
-            </ItemDetails>
+                <Field2 field='region' label='Region'/>
+                <Field2 field='numberOfPages' label='Number of pages'/>
+                <Field2 field='publisher' label='Publisher'/>
+                <Field2 field='released' label='Released'/>
+            </ItemDetails2>
         )
 
         return (

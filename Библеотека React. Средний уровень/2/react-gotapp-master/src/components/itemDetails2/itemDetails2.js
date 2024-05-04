@@ -1,8 +1,8 @@
 import React, {Component} from 'react';
-import './charDetails.css';
+import './itemDetails.css';
 import GotService from '../services/gotService';
 
-const Field = ({item, field, label}) => {
+const Field2 = ({item, field, label}) => {
     return (
         <li className="list-group-item d-flex justify-content-between">
             <span className="term">{label}</span>
@@ -12,10 +12,10 @@ const Field = ({item, field, label}) => {
 }
 
 export {
-    Field
+    Field2
 };
 
-export default class CharDetails extends Component {
+export default class ItemDetails2 extends Component {
 
     gotService = new GotService();
 
@@ -28,20 +28,20 @@ export default class CharDetails extends Component {
     }
 
     componentDidUpdate(prevProps) {
-        if (this.props.charId !== prevProps.charId) {
+        if (this.props.itemId !== prevProps.itemId) {
             this.updateChar();
         }
         //важно делать такую проверку, т.к. это может привести к постоянному
         //запросу обновления состояния
     }
-
+    
     updateChar() {
-        const {charId} = this.props;
-        if (!charId) {
+        const {itemId} = this.props;
+        if (!itemId) {
             return;
         }
         
-        this.gotService.getCharacter(charId)
+        this.gotService.getBook(itemId)
             .then((item) => {
                 this.setState({
                     item: item
@@ -54,12 +54,12 @@ export default class CharDetails extends Component {
     render() {
 
         if (!this.state.item) {
-            return <span className='select-error'>Please select a character</span>
+            return <span className='select-error'>Please select something</span>
         }
 
-        const {item} = this.state;
-        const { name } = item; //this.state 
-        //будет объектом, поэтому дописываем char, чтобы именно из объекта доставать значения
+        const { item }  = this.state;
+        const { name } = item; 
+        
 
         return (
             <div className="char-details rounded">

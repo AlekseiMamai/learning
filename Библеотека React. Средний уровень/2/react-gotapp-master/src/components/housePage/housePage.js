@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
 import ItemList from '../itemList';
-import ItemDetails, { Field } from '../itemDetails';
+import ItemDetails3, { Field3 } from '../itemDetails3';
 import ErrorMessage from '../errorMessage';
 import GotService from '../services/gotService';
 import RowBlock from '../rowBlock';
 
-export default class CharacterPage extends Component {
+export default class HousePage extends Component {
 
     gotService = new GotService();
 
@@ -35,18 +35,19 @@ export default class CharacterPage extends Component {
         const itemList = (
             <ItemList 
                 onItemSelected={this.onItemSelected}
-                getData={this.gotService.getAllCharacters}
-                renderItem={({name, gender}) => `${name} (${gender})`}/>
+                getData={this.gotService.getAllHouses}
+                renderItem={({name}) => `${name}`}/>
         )
 
         const itemDetails = (
-            <ItemDetails 
+            <ItemDetails3 
                 itemId={this.state.selectedItem}>
-                <Field field='gender' label='Gender'/>
-                <Field field='born' label='Born'/>
-                <Field field='died' label='Died'/>
-                <Field field='culture' label='Culture'/>
-            </ItemDetails>
+                <Field3 field='region' label='Region'/>
+                <Field3 field='words' label='Words'/>
+                <Field3 field='titles' label='Titles'/>
+                <Field3 field='overlord' label='Overlord'/>
+                <Field3 field='ancestralWeapons' label='Ancestral weapons'/>
+            </ItemDetails3>
         )
 
         return (

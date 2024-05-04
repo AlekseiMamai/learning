@@ -20,7 +20,7 @@ export default class ItemList extends Component {
     }
 
     renderItems(arr) {
-        return arr.map((item, i) => {
+        return arr.map((item) => {
             const {id} = item;
             const label = this.props.renderItem(item);
 
