@@ -22,7 +22,6 @@ export default class GotService {
     
     getCharacter = async(id) => {
         const character = await this.getResoursce(`/characters/${id}`);
-        console.log(id);
         return this._transformCharacter(character);
     }
 
@@ -38,13 +37,11 @@ export default class GotService {
 
     getAllHouses = async() => {
         const res = await this.getResoursce(`/houses/`);
-        console.log(res);
         return res.map(this._transformHouse)
     }
 
     getHouse = async(id) => {
         const house = await this.getResoursce(`/houses/${id}`);
-        console.log(house);
         return this._transformBook(house);
     }
 

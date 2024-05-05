@@ -1,2 +1,3 @@
 import BookPage from './bookPage';
-export default BookPage;
+import BooksItem from './booksItem';
+export { BookPage, BooksItem };
