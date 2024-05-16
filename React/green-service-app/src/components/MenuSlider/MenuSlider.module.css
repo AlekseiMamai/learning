@@ -1,0 +1,12 @@
+.MenuSlider {
+    display: block;
+    width: 70vw;
+    height: 40px;
+    background-color: gray;
+}
+
+.MenuSlider_wrapper {
+    display: flex;
+    position: relative;
+}
+
