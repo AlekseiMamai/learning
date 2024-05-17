@@ -1,0 +1,51 @@
+.Menu {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 70vw;
+    min-width: 720px;
+    height: 100px;
+    margin-top: 5%;
+    background-color: forestgreen;
+    border: solid 2px forestgreen;
+    border-radius: 15px;
+}
+
+.Menu_wrapper {
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+    width: 95%;
+    height: 100px;
+    background-color: white;
+    border-left: 0.5px solid white;
+    border-right: 0.5px solid white;
+}
+
+.MenuButton {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+    width: 20%;
+    height: 100%;
+    padding-top: 5px;
+    background-color: forestgreen;
+    border-left: 0.5px solid white;
+    border-right: 0.5px solid white;
+}
+
+.MenuButton:hover {
+    background-color: rgb(0, 160, 0);
+}
+
+.image img{
+    width: 60px;
+    height: 60px;
+}
+
+.name {
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: white;
+}
+

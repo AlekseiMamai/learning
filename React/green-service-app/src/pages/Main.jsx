@@ -1,13 +1,13 @@
 import React from "react";
 import Header from "../components/Header/Header";
 import Footer from "../components/Footer/Footer";
-import MenuSlider from "../components/MenuSlider/MenuSlider";
+import Menu from "../components/Menu/Menu";
 
 const Main = () => {
     return (
         <div>
             <Header />
-            <MenuSlider/>
+            <Menu/>
             <Footer />
         </div>
     )
