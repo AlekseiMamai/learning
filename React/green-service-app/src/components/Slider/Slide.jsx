@@ -1,11 +1,11 @@
-import React, { useState } from 'react';
+import React from 'react';
 import cl from './Slider.module.css'
 
-const Slide = ({slide}) => {
+const Slide = ({slide, index}) => {
 
     return (
-        <div className={cl.Slide}>
-            
+        <div className={index === slide.id ? `${cl.SlideImg}` : `${cl.SlideImg_hidden}`} key={slide.id}>
+            <img src={slide.url} alt=''/>
         </div>
     );
 };

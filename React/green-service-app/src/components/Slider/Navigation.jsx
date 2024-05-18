@@ -1,8 +1,9 @@
 import React from 'react';
+import cl from './Slider.module.css'
 
 const Navigation = () => {
     return (
-        <div>
+        <div className={cl.Navigation}>
             
         </div>
     );

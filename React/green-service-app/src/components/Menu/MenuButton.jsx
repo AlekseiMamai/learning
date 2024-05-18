@@ -1,13 +1,13 @@
 import React from 'react';
 import cl from './Menu.module.css';
 
-const MenuButton = ({slide}) => {
+const MenuButton = ({item}) => {
     return (
         <div className={cl.MenuButton}>
             <div className={cl.image}>
-                <img src={slide.url} alt=''/>
+                <img src={item.url} alt=''/>
             </div>
-            <div className={cl.name}>{slide.name}</div>
+            <div className={cl.name}>{item.name}</div>
         </div>
     );
 };

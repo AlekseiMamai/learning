@@ -1,27 +1,33 @@
 import React, {useState} from 'react';
 import cl from './Slider.module.css'
 import Slide from './Slide';
+import Navigation from './Navigation';
 
 const Slider = () => {
 
     const sliderSlides = [
-        [
-            { url: 'http://localhost:3000/imgMenu/Tablet.png'},
-            { url: 'http://localhost:3000/imgMenu/Smartphone.png'},
-            { url: 'http://localhost:3000/imgMenu/Desktop.png'},
-            { url: 'http://localhost:3000/imgMenu/Laptop.png'},
-            { url: 'http://localhost:3000/imgMenu/Console.png'}
-        ]
+            { id: 0, url: 'http://localhost:3000/imgSlider/1.png', content: <h1>Сервисный центр <h2>GREEN SERVICE</h2> - качественый ремонт электроники<h2> В МИНСКЕ</h2></h1> },
+            { id: 1, url: 'http://localhost:3000/imgSlider/2.png', content: <h1><h2>Ремонт</h2> планшетов, ноутбуков, телефонов<h2> В МИНСКЕ</h2> и другие дополнительные услуги</h1> },
+            { id: 2, url: 'http://localhost:3000/imgSlider/3.png', content: <h1>Обновление<h2> ПО</h2> для всех устройств<h2>Новые версии,</h2> различные программы</h1> }
     ]
-    const {slides, setSlides} = useState(sliderSlides);
+
+    const [slideIndex, setSlideIndex] = useState(0);
 
     return (
-        <div>
-            <div className={cl.Slider}>
-            {slides.map(slide => 
-                <Slide key={slide.url} slide={slide}/>
+        <div className={cl.Slider}>
+            {sliderSlides.map(slide =>
+                <div className={cl.Slide}>
+                        <div className={slideIndex === slide.id ? `${cl.SlideContent}` : `${cl.SlideContent_hidden}`}>
+                            {slide.content}
+                        </div> 
+                    <Slide index={slideIndex} key={slide.id} url={slide.url} slide={slide}/>
+                </div>
             )}
-            </div>
+            <span className={cl.Indicators}>
+            {sliderSlides.map(btn => 
+                <button className={slideIndex === btn.id ? `${cl.Indicator}` : `${cl.Indicator_hidden}`} key={btn.id} onClick={() => setSlideIndex(btn.id)}></button> 
+            )}
+            </span>
         </div>
     );
 };
