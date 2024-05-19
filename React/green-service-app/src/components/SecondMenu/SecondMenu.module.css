@@ -1,0 +1,46 @@
+.SecondMenu {
+    display: grid;
+    grid-template-columns: 50% 50%;
+    justify-items: center;
+    width: 70vw;
+    min-width: 1050px;
+    padding: 2%;
+}
+
+.SecondMenuItem {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 90%;
+    margin: 3%;
+    padding: 3%;
+    box-shadow: 0px 0px 7px #666;
+    border-radius: 15px;
+    border: 2px gray;
+    cursor: pointer;
+}
+
+.SecondMenuItem:hover {
+    border: 1px solid forestgreen;
+}
+
+.SecondMenuItem img {
+    width: 45%;
+    min-width: auto;
+}
+
+.SecondMenuItem div {
+    padding: 2%;
+}
+
+.ItemContent {
+    width: 90%;
+    font-family:Arial, Helvetica, sans-serif;
+    font-size: 16px;
+}
+
+.ItemTitle {
+    width: 90%;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 10px;
+}

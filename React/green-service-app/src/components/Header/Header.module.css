@@ -1,6 +1,6 @@
 .header_div {
     display: block;
-    width: 80vw;
+    width: 70vw;
     height: 110px;
     min-width: 1050px;
     border-bottom-right-radius: 15px;
@@ -54,7 +54,7 @@
     width: 100%;
     padding-left: 10px;
     padding-right: 10px;
-    font-family:'Courier New', Courier, monospace;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     font-size: 18px;
     text-align: center;
     color: white;

@@ -16,11 +16,11 @@ const Slider = () => {
     return (
         <div className={cl.Slider}>
             {sliderSlides.map(slide =>
-                <div className={cl.Slide}>
+                <div className={cl.Slide} key={slide.id}>
                         <div className={slideIndex === slide.id ? `${cl.SlideContent}` : `${cl.SlideContent_hidden}`}>
                             {slide.content}
                         </div> 
-                    <Slide index={slideIndex} key={slide.id} url={slide.url} slide={slide}/>
+                    <Slide index={slideIndex} url={slide.url} slide={slide}/>
                 </div>
             )}
             <span className={cl.Indicators}>
