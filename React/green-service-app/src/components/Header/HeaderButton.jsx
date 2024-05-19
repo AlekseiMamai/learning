@@ -1,9 +1,9 @@
 import React from 'react';
 import cl from './Header.module.css'
 
-const HeaderButton = ({children, ...props}) => {
+const HeaderButton = ({children}) => {
     return (
-        <button className={cl.header_button}>
+        <button  className={cl.header_button}>
             {children}
         </button>
     );

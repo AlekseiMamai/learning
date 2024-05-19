@@ -25,12 +25,12 @@
 }
 
 .SecondMenuItem img {
-    width: 45%;
+    width: 30%;
     min-width: auto;
 }
 
 .SecondMenuItem div {
-    padding: 2%;
+    padding: 5px;
 }
 
 .ItemContent {

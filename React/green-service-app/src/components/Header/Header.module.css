@@ -38,6 +38,7 @@
     min-height: 100%;
     padding-top: 10px;
     padding-bottom: 10px;
+    text-decoration: none;
     cursor: pointer;
 }
 
@@ -74,6 +75,9 @@
 .header_button {
     width: 33%;
     height: 100%;
+    padding: 1.5%;
+    text-align: center;
+    text-decoration: none;
     background-color: forestgreen;
     border: 0px;
     border-radius: 20px;

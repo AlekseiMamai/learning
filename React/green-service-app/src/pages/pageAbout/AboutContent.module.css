@@ -1,0 +1,57 @@
+.AboutContent {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 70vw;
+    min-width: 1050px;
+    margin-top: 3%;
+    font-size: 16;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-weight: bold;
+}
+
+.Content {
+    margin-top: 3%;
+    padding: 1%;
+    border-radius: 15px;
+    box-shadow: 0px 0px 7px #666;
+}
+
+.Content img {
+    width: 100%;
+}
+
+.Content div {
+    padding: 1%;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 16px;
+    font-weight: normal;
+}
+
+.Content ul {
+    width: 60%;
+    padding-top: 1%;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 16px;
+    font-weight: normal;
+}
+
+.Content li {
+    margin-left: 30px;
+}
+
+.Content h1 {
+    text-align: center;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 20px;
+}
+
+.ContentFlex {
+    display: flex;
+    align-items: center;
+}
+
+.ContentFlex img {
+    width: 40%;
+}
+

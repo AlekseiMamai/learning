@@ -18,7 +18,9 @@ const Menu = () => {
         <div className={cl.Menu}>
             <div className={cl.Menu_wrapper}>
             {menuItems.map(item => 
-                <MenuButton key={item.url} item={item}/>
+                <MenuButton  
+                    key={item.url} 
+                    item={item}/>
             )}
             </div>
         </div>
