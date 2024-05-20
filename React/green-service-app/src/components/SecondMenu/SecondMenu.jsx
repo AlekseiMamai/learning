@@ -12,11 +12,11 @@ const SecondMenu = () => {
         { id: 5, url: 'http://localhost:3000/secondMenuImg/pristavki.jpg', content: [<h1>Ремонт игровых приставок</h1>, <div>Сломалась любимая игровая приставка? Выполним ремонт. Наша компания занимается ремонтом телефонов различных моделей и брендов,все виды поломок и все виды запчастей.</div>] }
     ]
 
-    const [itemIndex, setItemIndex] = useState(0);
+    const [itemIndex, setItemIndex] = useState(secondMenuItems);
 
     return (
         <div className={cl.SecondMenu}>
-            {secondMenuItems.map(item => 
+            {itemIndex.map(item => 
                 <SecondMenuItem index={itemIndex} key={item.url} item={item}/>
             )}
         </div>

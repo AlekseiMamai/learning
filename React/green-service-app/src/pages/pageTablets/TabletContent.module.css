@@ -1,0 +1,55 @@
+.TabletContent {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 70vw;
+    min-width: 1050px;
+    margin-top: 3%;
+    font-size: 16;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-weight: bold;
+}
+
+.Title {
+    font-size: 20px;
+    margin: 3%;
+    text-align: center;
+}
+
+.TabletList {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 30% 30% 30%;
+    justify-items: center;
+    justify-content: center;
+}
+
+.ListItem {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 90%;
+    padding: 2%;
+    margin: 5%;
+    font-size: 20px;
+    font-weight: normal;
+    text-decoration: none;
+    box-shadow: 0px 0px 7px #666;
+    border-radius: 15px;
+    cursor: pointer;
+}
+
+.ListItem:hover {
+    border: 1px solid forestgreen;
+}
+
+.ListItem img{
+    width: 100%;
+}
+
+.ListItemName {
+    color: black;
+    padding: 2%
+}
+
